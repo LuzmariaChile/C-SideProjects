@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KLanceDb.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="KLanceDbStoreContainer">
+    <EntitySet Name="People" EntityType="KLanceDb.Store.People" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employers" EntityType="KLanceDb.Store.Employers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JobSeekers" EntityType="KLanceDb.Store.JobSeekers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Jobs" EntityType="KLanceDb.Store.Jobs" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PersonEmployer" Association="KLanceDb.Store.PersonEmployer">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Employer" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="PersonJobSeeker" Association="KLanceDb.Store.PersonJobSeeker">
+      <End Role="Person" EntitySet="People" />
+      <End Role="JobSeeker" EntitySet="JobSeekers" />
+    </AssociationSet>
+    <AssociationSet Name="EmployerJob" Association="KLanceDb.Store.EmployerJob">
+      <End Role="Employer" EntitySet="Employers" />
+      <End Role="Job" EntitySet="Jobs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="SSN" />
+    </Key>
+    <Property Name="SSN" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="nchar" Nullable="false" MaxLength="2" />
+    <Property Name="Zip" Type="smallint" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SSN" Type="int" Nullable="false" />
+    <Property Name="Person_SSN" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobSeekers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SSN" Type="int" Nullable="false" />
+    <Property Name="Person_SSN" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jobs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="DurationOfProject" Type="int" Nullable="false" />
+    <Property Name="FixedPrice" Type="decimal" Nullable="false" />
+    <Property Name="PostedDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="BidStartDate" Type="datetime" Nullable="false" />
+    <Property Name="BidEndDate" Type="datetime" Nullable="false" />
+    <Property Name="EmployerID" Type="int" Nullable="false" />
+    <Property Name="Employer_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PersonEmployer">
+    <End Role="Person" Type="KLanceDb.Store.People" Multiplicity="1" />
+    <End Role="Employer" Type="KLanceDb.Store.Employers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="SSN" />
+      </Principal>
+      <Dependent Role="Employer">
+        <PropertyRef Name="Person_SSN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonJobSeeker">
+    <End Role="Person" Type="KLanceDb.Store.People" Multiplicity="1" />
+    <End Role="JobSeeker" Type="KLanceDb.Store.JobSeekers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="SSN" />
+      </Principal>
+      <Dependent Role="JobSeeker">
+        <PropertyRef Name="Person_SSN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployerJob">
+    <End Role="Employer" Type="KLanceDb.Store.Employers" Multiplicity="1" />
+    <End Role="Job" Type="KLanceDb.Store.Jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="Employer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="KLanceDb" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="KLanceDbContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="People" EntityType="KLanceDb.Person" />
+          <EntitySet Name="Employers" EntityType="KLanceDb.Employer" />
+          <AssociationSet Name="PersonEmployer" Association="KLanceDb.PersonEmployer">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Employer" EntitySet="Employers" />
+          </AssociationSet>
+          <EntitySet Name="JobSeekers" EntityType="KLanceDb.JobSeeker" />
+          <AssociationSet Name="PersonJobSeeker" Association="KLanceDb.PersonJobSeeker">
+            <End Role="Person" EntitySet="People" />
+            <End Role="JobSeeker" EntitySet="JobSeekers" />
+          </AssociationSet>
+          <EntitySet Name="Jobs" EntityType="KLanceDb.Job" />
+          <AssociationSet Name="EmployerJob" Association="KLanceDb.EmployerJob">
+            <End Role="Employer" EntitySet="Employers" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="SSN" />
+          </Key>
+          <Property Name="SSN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="FirstName" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="2" FixedLength="true" />
+          <Property Name="Zip" Type="Int16" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" Unicode="true" />
+          <NavigationProperty Name="Employers" Relationship="KLanceDb.PersonEmployer" FromRole="Person" ToRole="Employer" />
+          <NavigationProperty Name="JobSeekers" Relationship="KLanceDb.PersonJobSeeker" FromRole="Person" ToRole="JobSeeker" />
+        </EntityType>
+        <EntityType Name="Employer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SSN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="KLanceDb.PersonEmployer" FromRole="Employer" ToRole="Person" />
+          <NavigationProperty Name="Jobs" Relationship="KLanceDb.EmployerJob" FromRole="Employer" ToRole="Job" />
+          </EntityType>
+        <Association Name="PersonEmployer">
+          <End Type="KLanceDb.Person" Role="Person" Multiplicity="1" />
+          <End Type="KLanceDb.Employer" Role="Employer" Multiplicity="*" />
+        </Association>
+        <EntityType Name="JobSeeker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SSN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="KLanceDb.PersonJobSeeker" FromRole="JobSeeker" ToRole="Person" />
+        </EntityType>
+        <Association Name="PersonJobSeeker">
+          <End Type="KLanceDb.Person" Role="Person" Multiplicity="1" />
+          <End Type="KLanceDb.JobSeeker" Role="JobSeeker" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="DurationOfProject" Type="Int32" Nullable="false" />
+          <Property Name="FixedPrice" Type="Decimal" Nullable="false" />
+          <Property Name="PostedDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="BidStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="BidEndDate" Type="DateTime" Nullable="false" />
+          <Property Name="EmployerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employer" Relationship="KLanceDb.EmployerJob" FromRole="Job" ToRole="Employer" />
+        </EntityType>
+        <Association Name="EmployerJob">
+          <End Type="KLanceDb.Employer" Role="Employer" Multiplicity="1" />
+          <End Type="KLanceDb.Job" Role="Job" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KLanceDbStoreContainer" CdmEntityContainer="KLanceDbContainer">
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="IsTypeOf(KLanceDb.Person)">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employers">
+      <EntityTypeMapping TypeName="IsTypeOf(KLanceDb.Employer)">
+        <MappingFragment StoreEntitySet="Employers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobSeekers">
+      <EntityTypeMapping TypeName="IsTypeOf(KLanceDb.JobSeeker)">
+        <MappingFragment StoreEntitySet="JobSeekers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="IsTypeOf(KLanceDb.Job)">
+        <MappingFragment StoreEntitySet="Jobs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="DurationOfProject" ColumnName="DurationOfProject" />
+          <ScalarProperty Name="FixedPrice" ColumnName="FixedPrice" />
+          <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BidStartDate" ColumnName="BidStartDate" />
+          <ScalarProperty Name="BidEndDate" ColumnName="BidEndDate" />
+          <ScalarProperty Name="EmployerID" ColumnName="EmployerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PersonEmployer" TypeName="KLanceDb.PersonEmployer" StoreEntitySet="Employers">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="SSN" ColumnName="Person_SSN" />
+      </EndProperty>
+      <EndProperty Name="Employer">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonJobSeeker" TypeName="KLanceDb.PersonJobSeeker" StoreEntitySet="JobSeekers">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="SSN" ColumnName="Person_SSN" />
+      </EndProperty>
+      <EndProperty Name="JobSeeker">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployerJob" TypeName="KLanceDb.EmployerJob" StoreEntitySet="Jobs">
+      <EndProperty Name="Employer">
+        <ScalarProperty Name="Id" ColumnName="Employer_Id" />
+      </EndProperty>
+      <EndProperty Name="Job">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,6 @@
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\collapseSegments\collapseSegments\bin\Debug\collapseSegments.exe.config
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\collapseSegments\collapseSegments\bin\Debug\collapseSegments.exe
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\collapseSegments\collapseSegments\bin\Debug\collapseSegments.pdb
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\collapseSegments\collapseSegments\obj\Debug\collapseSegments.csprojResolveAssemblyReference.cache
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\collapseSegments\collapseSegments\obj\Debug\collapseSegments.exe
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\collapseSegments\collapseSegments\obj\Debug\collapseSegments.pdb

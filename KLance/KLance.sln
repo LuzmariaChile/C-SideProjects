@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KLance", "KLance\KLance.csproj", "{07524AF1-2891-4A71-A21C-A6D58723C8A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KLance.Tests", "KLance.Tests\KLance.Tests.csproj", "{92D4E2F9-0D9B-4BB0-BD25-34C0CD5EE863}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{C738B1B9-18E6-434E-840B-7F02C3A20C7E}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{96A979A8-0E0A-46C1-ABF5-45D193B83796}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\KLance-WAWS-dev.json = PublishScripts\Configurations\KLance-WAWS-dev.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F6034D35-D9BD-40C6-9372-9CBCCDD7C86F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07524AF1-2891-4A71-A21C-A6D58723C8A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07524AF1-2891-4A71-A21C-A6D58723C8A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07524AF1-2891-4A71-A21C-A6D58723C8A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07524AF1-2891-4A71-A21C-A6D58723C8A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D4E2F9-0D9B-4BB0-BD25-34C0CD5EE863}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D4E2F9-0D9B-4BB0-BD25-34C0CD5EE863}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D4E2F9-0D9B-4BB0-BD25-34C0CD5EE863}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D4E2F9-0D9B-4BB0-BD25-34C0CD5EE863}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96A979A8-0E0A-46C1-ABF5-45D193B83796} = {C738B1B9-18E6-434E-840B-7F02C3A20C7E}
+	EndGlobalSection
+EndGlobal

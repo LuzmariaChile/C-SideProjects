@@ -1,0 +1,6 @@
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BedrockBank\BedrockBank\bin\Debug\BedrockBank.exe.config
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BedrockBank\BedrockBank\bin\Debug\BedrockBank.exe
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BedrockBank\BedrockBank\bin\Debug\BedrockBank.pdb
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BedrockBank\BedrockBank\obj\Debug\BedrockBank.csprojResolveAssemblyReference.cache
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BedrockBank\BedrockBank\obj\Debug\BedrockBank.exe
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BedrockBank\BedrockBank\obj\Debug\BedrockBank.pdb

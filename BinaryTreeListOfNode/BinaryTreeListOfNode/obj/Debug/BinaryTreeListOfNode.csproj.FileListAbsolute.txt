@@ -1,0 +1,6 @@
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BinaryTreeListOfNode\BinaryTreeListOfNode\bin\Debug\BinaryTreeListOfNode.exe.config
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BinaryTreeListOfNode\BinaryTreeListOfNode\bin\Debug\BinaryTreeListOfNode.exe
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BinaryTreeListOfNode\BinaryTreeListOfNode\bin\Debug\BinaryTreeListOfNode.pdb
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BinaryTreeListOfNode\BinaryTreeListOfNode\obj\Debug\BinaryTreeListOfNode.csprojResolveAssemblyReference.cache
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BinaryTreeListOfNode\BinaryTreeListOfNode\obj\Debug\BinaryTreeListOfNode.exe
+C:\Users\Luzmaria\Documents\Visual Studio 2013\Projects\KalAcademy\BinaryTreeListOfNode\BinaryTreeListOfNode\obj\Debug\BinaryTreeListOfNode.pdb

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KLanceDbStoreContainer" CdmEntityContainer="KLanceDbContainer">
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="IsTypeOf(KLanceDb.Person)">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employers">
+      <EntityTypeMapping TypeName="IsTypeOf(KLanceDb.Employer)">
+        <MappingFragment StoreEntitySet="Employers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobSeekers">
+      <EntityTypeMapping TypeName="IsTypeOf(KLanceDb.JobSeeker)">
+        <MappingFragment StoreEntitySet="JobSeekers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="IsTypeOf(KLanceDb.Job)">
+        <MappingFragment StoreEntitySet="Jobs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="DurationOfProject" ColumnName="DurationOfProject" />
+          <ScalarProperty Name="FixedPrice" ColumnName="FixedPrice" />
+          <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BidStartDate" ColumnName="BidStartDate" />
+          <ScalarProperty Name="BidEndDate" ColumnName="BidEndDate" />
+          <ScalarProperty Name="EmployerID" ColumnName="EmployerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PersonEmployer" TypeName="KLanceDb.PersonEmployer" StoreEntitySet="Employers">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="SSN" ColumnName="Person_SSN" />
+      </EndProperty>
+      <EndProperty Name="Employer">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonJobSeeker" TypeName="KLanceDb.PersonJobSeeker" StoreEntitySet="JobSeekers">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="SSN" ColumnName="Person_SSN" />
+      </EndProperty>
+      <EndProperty Name="JobSeeker">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployerJob" TypeName="KLanceDb.EmployerJob" StoreEntitySet="Jobs">
+      <EndProperty Name="Employer">
+        <ScalarProperty Name="Id" ColumnName="Employer_Id" />
+      </EndProperty>
+      <EndProperty Name="Job">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
